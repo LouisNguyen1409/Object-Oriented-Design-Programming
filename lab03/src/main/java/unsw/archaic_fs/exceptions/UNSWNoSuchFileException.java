@@ -1,5 +1,8 @@
 package unsw.archaic_fs.exceptions;
 
-public class UNSWNoSuchFileException {
-
+import java.io.IOException;
+public class UNSWNoSuchFileException extends IOException {
+    public UNSWNoSuchFileException(String message) {
+        super(message);
+    }
 }
