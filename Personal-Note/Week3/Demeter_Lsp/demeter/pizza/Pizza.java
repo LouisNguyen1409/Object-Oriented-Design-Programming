@@ -9,7 +9,6 @@ package pizza;
 
 public abstract class Pizza {
 
-	
 	abstract int getPrice();
-	
+
 }

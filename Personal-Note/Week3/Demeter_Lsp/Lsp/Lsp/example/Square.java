@@ -13,5 +13,5 @@ public class Square extends Rectangle {
 		super.setWidth(aHeight);
 		super.setHeight(aHeight);
 	}
-	
+
 }

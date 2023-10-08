@@ -9,7 +9,6 @@ package pizza;
 
 public class MargheritaPizza extends Pizza {
 
-
 	@Override
 	int getPrice() {
 		// TODO Auto-generated method stub

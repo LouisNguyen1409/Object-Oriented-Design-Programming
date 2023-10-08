@@ -9,9 +9,8 @@ package pizza;
 
 public class CheeseTopping extends Topping {
 
-	
 	public float getWeightUsed() {
-		
+
 		return 5;
 	}
 }

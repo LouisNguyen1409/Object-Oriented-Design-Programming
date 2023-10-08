@@ -9,18 +9,18 @@ package car;
 
 public class Car {
 
-    private  Person owner;
-    
+    private Person owner;
+
     public Car(Person owner) {
-    	this.owner = owner; 
+        this.owner = owner;
     }
-    
+
     public Person getOwner() {
         return owner;
     }
 
-	public void setOwner(Person owner) {
-		this.owner = owner;
-	}
-    
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
 }

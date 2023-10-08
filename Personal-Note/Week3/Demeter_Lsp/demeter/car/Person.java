@@ -31,8 +31,5 @@ public class Person {
 	public String getPostcode() {
 		return address.getPostcode2();
 	}
-	
-	
+
 }
-
-

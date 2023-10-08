@@ -8,10 +8,9 @@ import java.util.TreeSet;
 public class Test1 {
 
 	public static void main(String[] args) {
-		
-		Comparator<Customer> myCmp  = new MyPostcodeRewardspointCmp()  ; 
-		
-		
+
+		Comparator<Customer> myCmp = new MyPostcodeRewardspointCmp();
+
 		TreeSet<Customer> set = new TreeSet<>();
 		set.add(new Customer("John", 12500, 2060));
 		set.add(new Customer("Emma", 45900, 2200));
@@ -24,22 +23,20 @@ public class Test1 {
 			System.out.println(c);
 		}
 
-		Collections.sort( custA );
+		Collections.sort(custA);
 		System.out.println(" =========  1  =============== ");
 		for (Customer c : custA) {
 			System.out.println(c);
 		}
 
-		Collections.sort( custA , myCmp);
-		
+		Collections.sort(custA, myCmp);
+
 		System.out.println(" =========== 2 ============= ");
 		for (Customer c : custA) {
 			System.out.println(c);
 		}
-		
-		Collections.sort( custA , myCmp);
-		
-	
+
+		Collections.sort(custA, myCmp);
 
 	}
 
