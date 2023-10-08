@@ -1,13 +1,13 @@
 **"Is a"** relationship format:
 ```java
-public class smth extends smth() {
+public class smth extends smth {
 
 }
 ```
 
 **"Has a"** relationship format:
 ```java
-public class smth() {
+public class smth {
     A a1 = new A();
 }
 ```

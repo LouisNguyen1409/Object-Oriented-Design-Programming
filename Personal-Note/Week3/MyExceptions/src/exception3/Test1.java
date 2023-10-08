@@ -2,8 +2,7 @@ package exception3;
 
 public class Test1 {
 
-	public static void main(String[] args)   {
-		
+	public static void main(String[] args) {
 
 		ListOfNumbers ln = new ListOfNumbers();
 		ln.writeList();
