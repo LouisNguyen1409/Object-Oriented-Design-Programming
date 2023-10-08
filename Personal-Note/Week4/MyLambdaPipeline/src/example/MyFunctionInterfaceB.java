@@ -1,5 +1,5 @@
 package example;
 
 public interface MyFunctionInterfaceB {
-    public boolean myCmp(int x, int y);    
+    public boolean myCmp(int x, int y);
 }

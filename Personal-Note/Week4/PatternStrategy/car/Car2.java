@@ -1,117 +1,119 @@
 package car;
-/** Demo file, it may not be correct and/or complete.  
+
+/**
+ * Demo file, it may not be correct and/or complete.
  * Please watch the corresponding lecture(s) for more explanations.
+ * 
  * @author ashesh
  */
 
 public class Car2 {
-	private String engine ; 
-	private String brake; 
+	private String engine;
+	private String brake;
 
 	/**
 	 * other fields and methods here
 	 */
-	
+
 	public Car2(String engine, String brake) {
 		this.brake = brake;
 		this.engine = engine;
 	}
-	
+
 	/**
 	 * other fields and methods here
-	 */	
-	
+	 */
+
 	public void brakeApply() {
-		
+
 		switch (brake) {
-			case "normal" : 
+			case "normal":
 				brakeNormal();
 				break;
-			case "abs" : 
+			case "abs":
 				brakeABS();
-				break;	
-			case "disc" : 
+				break;
+			case "disc":
 				brakeDisk();
-				break;	
-			case "drum" : 
+				break;
+			case "drum":
 				brakeDrum();
-				break;					
-		}		
+				break;
+		}
 	}
-	
+
 	private void brakeDrum() {
 		// TODO Auto-generated method stub
-		System.out.println("Braking style is Drum ");		
-		
+		System.out.println("Braking style is Drum ");
+
 	}
 
 	private void brakeDisk() {
 		// TODO Auto-generated method stub
-		System.out.println("Braking style is Disk ");		
-		
+		System.out.println("Braking style is Disk ");
+
 	}
 
 	private void brakeABS() {
 		// TODO Auto-generated method stub
-		System.out.println("Braking style is ABS ");		
-		
+		System.out.println("Braking style is ABS ");
+
 	}
 
 	private void brakeNormal() {
 		// TODO Auto-generated method stub
-		System.out.println("Braking style is Normal ");		
-		
+		System.out.println("Braking style is Normal ");
+
 	}
 
-
 	public void engineRun() {
-		
+
 		switch (engine) {
-			case "normal" : 
+			case "normal":
 				engineNormal();
 				break;
-			case "turbo" : 
+			case "turbo":
 				engineTurbo();
-				break;	
-			case "hybrid" : 
+				break;
+			case "hybrid":
 				engineHybrid();
-				break;	
-			case "electric" : 
+				break;
+			case "electric":
 				engineElectric();
-				break;	
-			case "hydrogen" : 
+				break;
+			case "hydrogen":
 				engineHydrogen();
-				break;					
-		}		
+				break;
+		}
 	}
 
 	private void engineHydrogen() {
 		// TODO Auto-generated method stub
-		System.out.println("Engine type is Hydrogen ");		
-		
+		System.out.println("Engine type is Hydrogen ");
+
 	}
 
 	private void engineElectric() {
 		// TODO Auto-generated method stub
-		System.out.println("Engine type is Electric ");		
-		
+		System.out.println("Engine type is Electric ");
+
 	}
 
 	private void engineHybrid() {
 		// TODO Auto-generated method stub
-		System.out.println("Engine type is Hybride ");		
-		
+		System.out.println("Engine type is Hybride ");
+
 	}
 
 	private void engineTurbo() {
 		// TODO Auto-generated method stub
-		System.out.println("Engine type is Turbo ");		
-		
+		System.out.println("Engine type is Turbo ");
+
 	}
 
 	private void engineNormal() {
 		// TODO Auto-generated method stub
-		System.out.println("Engine type is Normal ");		
-		
-	}	
+		System.out.println("Engine type is Normal ");
+
+	}
 }

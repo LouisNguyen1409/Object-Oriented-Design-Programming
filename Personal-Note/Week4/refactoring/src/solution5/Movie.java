@@ -2,6 +2,7 @@
  * Aarthi N
  */
 package solution5;
+
 /*
  * Moving the getCharge method to the class Movie,
  */
@@ -12,20 +13,21 @@ public class Movie {
 
 	private String _title;
 	private int _priceCode;
-	
+
 	public Movie(String title, int priceCode) {
 		_title = title;
 		setPriceCode(priceCode);
 	}
-	
+
 	public int getPriceCode() {
 		return _priceCode;
 	}
-	
+
 	public void setPriceCode(int arg) {
 		_priceCode = arg;
 	}
-	public String getTitle (){
+
+	public String getTitle() {
 		return _title;
 	}
 
@@ -38,26 +40,25 @@ public class Movie {
 				thisAmount += 2;
 				if (_daysRented > 2)
 					thisAmount += (_daysRented - 2) * 1.5;
-			break;
+				break;
 			case Movie.NEW_RELEASE:
 				thisAmount += _daysRented * 3;
-			break;
+				break;
 			case Movie.CHILDRENS:
 				thisAmount += 1.5;
 				if (_daysRented > 3)
 					thisAmount += (_daysRented - 3) * 1.5;
-			break;
+				break;
 		}
 		return thisAmount;
 	};
-	
+
 	int getFrequentRenterPoints(int _daysRented) {
-		
-		if ((getPriceCode() == Movie.NEW_RELEASE) && (_daysRented > 1)) 
+
+		if ((getPriceCode() == Movie.NEW_RELEASE) && (_daysRented > 1))
 			return 2;
-		else 
-			return 1;	
+		else
+			return 1;
 	}
 
-	
 }

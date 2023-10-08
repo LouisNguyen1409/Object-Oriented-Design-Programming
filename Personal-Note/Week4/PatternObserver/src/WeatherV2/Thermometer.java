@@ -1,4 +1,5 @@
 package WeatherV2;
+
 /** Demo file, it may not be correct and/or complete.  
  * Please watch the corresponding lecture(s) for more explanations.
  * @author ashesh
@@ -7,13 +8,15 @@ package WeatherV2;
 import java.util.ArrayList;
 
 public class Thermometer implements SubjectThermometer {
-	
+
 	ArrayList<ObserverThermometer> listObservers = new ArrayList<ObserverThermometer>();
 	double temperatureC = 0.0;
-	
+
 	@Override
 	public void attach(ObserverThermometer o) {
-		if(! listObservers.contains(o)) { listObservers.add(o); }
+		if (!listObservers.contains(o)) {
+			listObservers.add(o);
+		}
 	}
 
 	@Override
@@ -23,7 +26,7 @@ public class Thermometer implements SubjectThermometer {
 
 	@Override
 	public void notifyObservers() {
-		for( ObserverThermometer obs : listObservers) {
+		for (ObserverThermometer obs : listObservers) {
 			obs.update(this);
 		}
 	}

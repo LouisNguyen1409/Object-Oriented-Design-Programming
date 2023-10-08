@@ -1,6 +1,9 @@
 package Weather;
-/** Demo file, it may not be correct and/or complete.  
+
+/**
+ * Demo file, it may not be correct and/or complete.
  * Please watch the corresponding lecture(s) for more explanations.
+ * 
  * @author ashesh
  */
 
@@ -11,24 +14,24 @@ public class DisplayUSA implements Observer {
 
 	@Override
 	public void update(Subject obj) {
-		
-		if(obj instanceof Thermometer) {
-			update( (Thermometer) obj);
+
+		if (obj instanceof Thermometer) {
+			update((Thermometer) obj);
+		} else if (obj instanceof Hygrometer) {
+			update((Hygrometer) obj);
 		}
-		else if(obj instanceof Hygrometer) {
-			update((Hygrometer)obj);
-		}		
 	}
 
 	public void update(Thermometer obj) {
-			this.temperatureC = obj.getTemperatureC();
-			displayTemperature();
+		this.temperatureC = obj.getTemperatureC();
+		displayTemperature();
 	}
+
 	public void update(Hygrometer obj) {
-			this.humidity = obj.getHumidity();
-			displayHumidity();
-	}		
-	
+		this.humidity = obj.getHumidity();
+		displayHumidity();
+	}
+
 	public void display() {
 		System.out.printf("From DisplayUSA: Temperature is %.2f F, "
 				+ "Humidity is %.2f\n", convertToF(), humidity);
@@ -36,7 +39,7 @@ public class DisplayUSA implements Observer {
 
 	public void displayTemperature() {
 		System.out.printf("From DisplayUSA: Temperature is %.2f F\n",
-				 convertToF() );
+				convertToF());
 	}
 
 	public void displayHumidity() {
@@ -44,6 +47,6 @@ public class DisplayUSA implements Observer {
 	}
 
 	public double convertToF() {
-		return (temperatureC *(9.0/5.0) + 32);
+		return (temperatureC * (9.0 / 5.0) + 32);
 	}
 }

@@ -1,10 +1,13 @@
 package WeatherV2;
-/** Demo file, it may not be correct and/or complete.  
+
+/**
+ * Demo file, it may not be correct and/or complete.
  * Please watch the corresponding lecture(s) for more explanations.
+ * 
  * @author ashesh
  */
 
-public class DisplayUSA implements ObserverHygrometer , ObserverThermometer {
+public class DisplayUSA implements ObserverHygrometer, ObserverThermometer {
 	Subject subject;
 	double temperatureC = 0.0;
 	double humidity = 0.0;
@@ -14,16 +17,15 @@ public class DisplayUSA implements ObserverHygrometer , ObserverThermometer {
 
 		this.humidity = obj.getHumidity();
 		displayHumidity();
-		
+
 	}
 
 	@Override
 	public void update(SubjectThermometer obj) {
-			this.temperatureC = obj.getTemperatureC();
-			displayTemperature();
+		this.temperatureC = obj.getTemperatureC();
+		displayTemperature();
 	}
-	
-	
+
 	public void display() {
 		System.out.printf("From DisplayUSA: Temperature is %.2f F, "
 				+ "Humidity is %.2f\n", convertToF(), humidity);
@@ -31,7 +33,7 @@ public class DisplayUSA implements ObserverHygrometer , ObserverThermometer {
 
 	public void displayTemperature() {
 		System.out.printf("From DisplayUSA: Temperature is %.2f F\n",
-				 convertToF() );
+				convertToF());
 	}
 
 	public void displayHumidity() {
@@ -39,6 +41,6 @@ public class DisplayUSA implements ObserverHygrometer , ObserverThermometer {
 	}
 
 	public double convertToF() {
-		return (temperatureC *(9.0/5.0) + 32);
+		return (temperatureC * (9.0 / 5.0) + 32);
 	}
 }

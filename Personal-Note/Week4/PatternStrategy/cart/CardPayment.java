@@ -1,6 +1,9 @@
 package cart;
-/** Demo file, it may not be correct and/or complete.  
+
+/**
+ * Demo file, it may not be correct and/or complete.
  * Please watch the corresponding lecture(s) for more explanations.
+ * 
  * @author ashesh
  */
 
@@ -11,7 +14,5 @@ public class CardPayment implements PaymentOption {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 }
