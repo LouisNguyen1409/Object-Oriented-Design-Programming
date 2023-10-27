@@ -22,3 +22,5 @@ Function interface in Java
                                         .filter(myPass)
 				                        .collect(Collectors.toList());
 ```
+
+
