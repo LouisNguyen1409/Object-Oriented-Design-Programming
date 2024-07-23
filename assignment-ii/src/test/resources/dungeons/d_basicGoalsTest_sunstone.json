@@ -1,0 +1,27 @@
+{
+    "entities": [
+        {
+            "x": 0,
+            "y": 0,
+            "type": "sun_stone"
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "type": "sun_stone"
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "type": "sun_stone"
+        },
+        {
+            "x": 0,
+            "y": 3,
+            "type": "player"
+        }
+    ],
+    "goal-condition": {
+        "goal": "treasure"
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "entities": [
+        {
+            "x": 1,
+            "y": 1,
+            "type": "switch_door",
+            "logic": "co_and"
+        },
+        {
+            "x": 2,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 1,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 4,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 5,
+            "y": 2,
+            "type": "switch_door",
+            "logic": "co_and"
+        },
+        {
+            "x": 1,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 5,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 4,
+            "type": "switch"
+        },
+        {
+            "x": 5,
+            "y": 4,
+            "type": "switch"
+        },
+        {
+            "x": 2,
+            "y": 5,
+            "type": "boulder"
+        },
+        {
+            "x": 5,
+            "y": 5,
+            "type": "boulder"
+        },
+        {
+            "x": 2,
+            "y": 6,
+            "type": "player"
+        }
+    ],
+    "goal-condition": {
+        "goal": "exit"
+    }
+}

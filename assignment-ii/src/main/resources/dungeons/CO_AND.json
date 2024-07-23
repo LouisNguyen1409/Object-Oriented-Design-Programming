@@ -1,0 +1,114 @@
+{
+    "entities": [
+        {
+            "x": 1,
+            "y": 0,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 0,
+            "type": "light_bulb_off",
+            "logic": "CO_AND"
+        },
+        {
+            "x": 3,
+            "y": 0,
+            "type": "wire"
+        },
+        {
+            "x": 1,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 4,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 5,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 6,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 7,
+            "y": 1,
+            "type": "light_bulb_off",
+            "logic": "CO_AND"
+        },
+        {
+            "x": 8,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 1,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 8,
+            "y": 2,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 3,
+            "type": "switch"
+        },
+        {
+            "x": 7,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 8,
+            "y": 3,
+            "type": "wire"
+        },
+        {
+            "x": 2,
+            "y": 4,
+            "type": "boulder"
+        },
+        {
+            "x": 6,
+            "y": 4,
+            "type": "boulder"
+        },
+        {
+            "x": 7,
+            "y": 4,
+            "type": "switch"
+        },
+        {
+            "x": 2,
+            "y": 5,
+            "type": "player"
+        }
+    ],
+    "goal-condition": {
+        "goal": "exit"
+    }
+}
