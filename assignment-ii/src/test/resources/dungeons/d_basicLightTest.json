@@ -1,42 +1,38 @@
 {
-  "entities": [
-    {
-      "type": "switch",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "type": "wire",
-      "x": 1,
-      "y": 0
-    },
-    {
-      "type": "wire",
-      "x": 2,
-      "y": 0
-    },
-    {
-      "x": 3,
-      "y": 0,
-      "type": "light_bulb_off"
-    },
-    {
-      "type": "player",
-      "x": 0,
-      "y": 1
-    },
-    {
-      "type": "exit",
-      "x": 3,
-      "y": 1
-    },
-    {
-      "type": "mercenary",
-      "x": 4,
-      "y": 4
+    "entities": [
+        {
+            "x": 2,
+            "y": 0,
+            "type": "wire"
+        },
+        {
+            "x": 3,
+            "y": 0,
+            "type": "light_bulb_off",
+            "logic": "or"
+        },
+        {
+            "x": 2,
+            "y": 1,
+            "type": "wire"
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "type": "player"
+        },
+        {
+            "x": 1,
+            "y": 2,
+            "type": "boulder"
+        },
+        {
+            "x": 2,
+            "y": 2,
+            "type": "switch"
+        }
+    ],
+    "goal-condition": {
+        "goal": "exit"
     }
-  ],
-  "goal-condition": {
-    "goal": "exit"
-  }
 }

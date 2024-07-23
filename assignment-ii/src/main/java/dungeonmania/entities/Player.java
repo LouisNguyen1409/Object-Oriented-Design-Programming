@@ -8,9 +8,11 @@ import dungeonmania.battles.BattleStatistics;
 import dungeonmania.battles.Battleable;
 import dungeonmania.entities.collectables.Bomb;
 import dungeonmania.entities.collectables.Treasure;
+import dungeonmania.entities.collectables.Key;
 import dungeonmania.entities.collectables.potions.InvincibilityPotion;
 import dungeonmania.entities.collectables.potions.Potion;
 import dungeonmania.entities.collectables.Collectable;
+import dungeonmania.entities.collectables.SunStone;
 import dungeonmania.entities.enemies.Enemy;
 import dungeonmania.entities.enemies.Mercenary;
 import dungeonmania.entities.inventory.Inventory;
@@ -50,6 +52,10 @@ public class Player extends Entity implements Battleable {
         return inventory.hasWeapon();
     }
 
+    public boolean hasSceptre() {
+        return inventory.hasSceptre();
+    }
+
     public BattleItem getWeapon() {
         return inventory.getWeapon();
     }
@@ -71,22 +77,26 @@ public class Player extends Entity implements Battleable {
     }
 
     @Override
-    public void onOverlap(GameMap map, Entity entity) {
+    public boolean onOverlap(GameMap map, Entity entity) {
 
         if (entity instanceof Collectable) {
             if (!this.pickUp(((Collectable) entity))) {
-                return;
+                return false;
             }
             map.destroyEntity((Entity) entity);
+            return true;
         }
 
         if (entity instanceof Enemy) {
             if (entity instanceof Mercenary) {
                 if (((Mercenary) entity).isAllied())
-                    return;
+                    return false;
             }
             map.getGame().battle(this, (Enemy) entity);
+            return true;
         }
+
+        return false;
     }
 
     @Override
@@ -99,8 +109,11 @@ public class Player extends Entity implements Battleable {
     }
 
     public boolean pickUp(Entity item) {
-        if (item instanceof Treasure)
+        if (item instanceof Treasure || item instanceof SunStone)
             collectedTreasureCount++;
+        if (item instanceof Key && inventory.getFirst(Key.class) != null) {
+                return false;
+        }
         return inventory.add((InventoryItem) item);
     }
 

@@ -14,7 +14,7 @@
             "x": 2,
             "y": 0,
             "type": "light_bulb_off",
-            "logic": "AND"
+            "logic": "and"
         },
         {
             "x": 0,

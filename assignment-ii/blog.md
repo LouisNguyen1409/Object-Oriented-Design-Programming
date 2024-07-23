@@ -86,13 +86,13 @@ I changed the triggerOverlapEvent method to check specifically for the Collectab
 
 ### f) Open Refactoring
 
-[Merge Request 1](/put/links/here)
+[Merge Request 1](https://nw-syd-gitlab.cseunsw.tech/COMP2511/23T3/teams/M13A_JIGGLYPUFF/assignment-ii/-/merge_requests/13)
 
-[Briefly explain what you did]
+I refactored the triggerOverlapEvent within GameMap.java to always favour the player in any onOverlap call where possible. This means the player always enters combat and collects collectables (in accordance with the Task 1 D). If the onOverlap method (which is now boolean) returns false it will then call the entities onOverlap. This allows entities like Door and Bomb to behave as usual. This also works with the Logical updates required in Task 2 F.
 
-[Merge Request 2](/put/links/here)
+[Merge Request 2](https://nw-syd-gitlab.cseunsw.tech/COMP2511/23T3/teams/M13A_JIGGLYPUFF/assignment-ii/-/merge_requests/14)
 
-[Briefly explain what you did]
+After reviewing how simple the mercenary movement is to understand I wanted to have a look over the code for all moving entities. The zombie move method suffered from a similar problem. I decided to do a small refactoring to make it a little easier to understand/ read while also implementing a design pattern.
 
 Add all other changes you made in the same format here:
 
@@ -127,7 +127,7 @@ Nothing.
 
 ### Sunstone and More Buildables
 
-[Links to your merge requests](/put/links/here)
+[Links to your merge requests](https://nw-syd-gitlab.cseunsw.tech/COMP2511/23T3/teams/M13A_JIGGLYPUFF/assignment-ii/-/merge_requests/12)
 
 **Assumptions**
 
@@ -158,37 +158,37 @@ Such as opening a door with the sunstone and mind_control.
 
 ### Choice 2 (f) Logic Switches (20 marks))
 
-[Links to your merge requests](/put/links/here)
+[Links to your merge requests](https://nw-syd-gitlab.cseunsw.tech/COMP2511/23T3/teams/M13A_JIGGLYPUFF/assignment-ii/-/merge_requests/10)
 
 **Assumptions**
 
-Nothing.
+- When a powered wire is destroyed the behaviour for the powered entity is undefined for that tick
 
 **Design**
 
-[Design]
+The different logical states inherit an abstract class and are made within a logic factory
+The logical entities also inherit a logical entity subclass of entity for minimise repeated code, the bomb is an exception and acts like a regular entity with aditional logic to ensure it can be made as a logical entity.
 
 **Changes after review**
-
-[Design review/Changes made]
+Some changes where made to wires to allow them to be moved over and properly allow for bombs to be implemented. Work was done to ensure that logical conditions worked for every logical entity which required fixing how long ticks would interact with power logical entities. This means xor bombs dont explode at seemly random times.
 
 **Test list**
 
-[Test List]
+- lightBulb
+- LightbulbAND
+- lightBulbXOR
+- lightBulbCOAND
+- switchDoorTest
+- switchDoorAndTest
+- switchDoorXorTest
+- switchDoorCoAndTest
+- logicBombTest
+- logicBombAndTest
+- explodingCircuitTest
+- logicBombXorTest
+- logicBombCoAndTest
 
 **Other notes**
-
-[Any other notes]
-
-### Choice 3 (Insert choice) (If you have a 3rd member)
-
-[Links to your merge requests](/put/links/here)
-
-**Assumptions**
-
-[Any assumptions made]
-
-**Design**
 
 - Adding interface `Conductor` for `Switch` object and `Wire` object.
 - Adding `Wire.java` implements `Conductor` interface to handle Wire logic.
@@ -218,28 +218,6 @@ Nothing.
 - Editing `GameMap.java`: Addding function linking wire, switch, light bulb, bombs and switch door.
 - Editing `GraphNodeFactory.java`: Adding new lightbulb and switch door case.
 
-
-**Changes after review**
-
-[Design review/Changes made]
-
-**Test list**
-
-- Testing And Condition.
-- Testing Or Condition.
-- Testing Xor Condition.
-- Testing CoAnd Condition.
-- Testing Bomb with logic.
-- Testing Bomb without logic.
-- Testing Wire Conductor.
-- Testing SwitchDoor: close -> open.
-- Testing SwitchDoor: close -> open -> close.
-- Testing LightBulb: off -> on.
-- Testing LightBulb: off -> on -> off.
-
-**Other notes**
-
-Nothing
 
 ## Task 3) Investigation Task ⁉️
 

@@ -20,6 +20,7 @@ public class GraphNodeFactory {
         case "switch":
         case "exit":
         case "treasure":
+        case "sun_stone":
         case "wood":
         case "arrow":
         case "bomb":

@@ -32,20 +32,19 @@ public class Portal extends Entity {
     }
 
     @Override
-    public void onOverlap(GameMap map, Entity entity) {
+    public boolean onOverlap(GameMap map, Entity entity) {
         if (pair == null)
-            return;
-        if (entity instanceof Player || entity instanceof Mercenary || entity instanceof ZombieToast)
+            return false;
+        if (entity instanceof Player || entity instanceof Mercenary || entity instanceof ZombieToast) {
             doTeleport(map, entity);
+            return true;
+        }
+        return false;
     }
 
     private void doTeleport(GameMap map, Entity entity) {
-        Position destination = pair.getPosition()
-                .getCardinallyAdjacentPositions()
-                .stream()
-                .filter(dest -> map.canMoveTo(entity, dest))
-                .findAny()
-                .orElse(null);
+        Position destination = pair.getPosition().getCardinallyAdjacentPositions().stream()
+                .filter(dest -> map.canMoveTo(entity, dest)).findAny().orElse(null);
         if (destination != null) {
             map.moveTo(entity, destination);
         }
@@ -56,13 +55,11 @@ public class Portal extends Entity {
     }
 
     public List<Position> getDestPositions(GameMap map, Entity entity) {
-        return pair == null
-                ? null
-                : pair.getPosition().getAdjacentPositions()
-                    .stream()
-                    .filter(p -> map.canMoveTo(entity, p))
-                    .collect(Collectors.toList());
+        return pair == null ? null
+                : pair.getPosition().getAdjacentPositions().stream().filter(p -> map.canMoveTo(entity, p))
+                        .collect(Collectors.toList());
     }
+
     public void bind(Portal portal) {
         if (this.pair == portal)
             return;

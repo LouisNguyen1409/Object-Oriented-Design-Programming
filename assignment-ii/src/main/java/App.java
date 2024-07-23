@@ -1,4 +1,4 @@
-dimport spark.Request;
+import spark.Request;
 import spark.Spark;
 import spark.servlet.SparkApplication;
 import com.google.gson.Gson;

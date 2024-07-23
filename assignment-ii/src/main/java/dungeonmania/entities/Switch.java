@@ -55,7 +55,7 @@ public class Switch extends Entity implements Conductor {
     }
 
     @Override
-    public void onOverlap(GameMap map, Entity entity) {
+    public boolean onOverlap(GameMap map, Entity entity) {
 
         activeTick = System.currentTimeMillis();
         if (entity instanceof Boulder) {
@@ -70,8 +70,9 @@ public class Switch extends Entity implements Conductor {
                     c.activate(activeTick, map);
                 }
             }
+            return true;
         }
-
+        return false;
     }
 
     @Override

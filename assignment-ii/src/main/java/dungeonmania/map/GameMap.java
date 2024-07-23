@@ -13,11 +13,13 @@ import dungeonmania.entities.Player;
 import dungeonmania.entities.Portal;
 import dungeonmania.entities.Switch;
 import dungeonmania.entities.collectables.Bomb;
-import dungeonmania.entities.collectables.Collectable;
 import dungeonmania.entities.enemies.Enemy;
 import dungeonmania.entities.enemies.ZombieToastSpawner;
 import dungeonmania.util.Direction;
 import dungeonmania.util.Position;
+
+import dungeonmania.entities.logical.LogicalEntities;
+import dungeonmania.entities.Wire;
 
 public class GameMap {
     private Game game;
@@ -37,6 +39,75 @@ public class GameMap {
         initRegisterMovables();
         initRegisterSpawners();
         initRegisterBombsAndSwitches();
+        initRegisterBombsAndWire();
+        initRegisterLogicalEntitiesAndSwitches();
+        initRegisterLogicalEntitiesAndWire();
+        initRegisterWireAndSwitches();
+        initRegisterWireAndWire();
+    }
+
+    private void initRegisterBombsAndWire() {
+        List<Bomb> bombs = getEntities(Bomb.class);
+        List<Wire> wires = getEntities(Wire.class);
+        for (Bomb b : bombs) {
+            for (Wire w : wires) {
+                if (Position.isAdjacent(b.getPosition(), w.getPosition())) {
+                    b.subscribe((Entity) w);
+                    w.subscribe(b);
+                }
+            }
+        }
+    }
+
+    private void initRegisterLogicalEntitiesAndSwitches() {
+        List<LogicalEntities> logicalEntities = getEntities(LogicalEntities.class);
+        List<Switch> switchs = getEntities(Switch.class);
+        for (LogicalEntities le : logicalEntities) {
+            for (Switch s : switchs) {
+                if (Position.isAdjacent(le.getPosition(), s.getPosition())) {
+                    le.subscribe((Entity) s);
+                    s.subscribe((Entity) le);
+                }
+            }
+        }
+    }
+
+    private void initRegisterLogicalEntitiesAndWire() {
+        List<LogicalEntities> logicalEntities = getEntities(LogicalEntities.class);
+        List<Wire> wires = getEntities(Wire.class);
+        for (LogicalEntities le : logicalEntities) {
+            for (Wire w : wires) {
+                if (Position.isAdjacent(le.getPosition(), w.getPosition())) {
+                    le.subscribe((Entity) w);
+                    w.subscribe((Entity) le);
+                }
+            }
+        }
+    }
+
+    private void initRegisterWireAndSwitches() {
+        List<Wire> wires = getEntities(Wire.class);
+        List<Switch> switchs = getEntities(Switch.class);
+        for (Wire w : wires) {
+            for (Switch s : switchs) {
+                if (Position.isAdjacent(w.getPosition(), s.getPosition())) {
+                    w.subscribe((Entity) s);
+                    s.subscribe((Entity) w);
+                }
+            }
+        }
+    }
+
+    private void initRegisterWireAndWire() {
+        List<Wire> wires = getEntities(Wire.class);
+        for (Wire w1 : wires) {
+            for (Wire w2 : wires) {
+                if (Position.isAdjacent(w1.getPosition(), w2.getPosition())) {
+                    w1.subscribe((Entity) w2);
+                    w2.subscribe((Entity) w1);
+                }
+            }
+        }
     }
 
     private void initRegisterBombsAndSwitches() {
@@ -46,7 +117,8 @@ public class GameMap {
             for (Switch s : switchs) {
                 if (Position.isAdjacent(b.getPosition(), s.getPosition())) {
                     b.subscribe(s);
-                    s.subscribe(b);
+                    b.subscribe((Entity) s);
+                    s.subscribe((Entity) b);
                 }
             }
         }
@@ -117,10 +189,13 @@ public class GameMap {
     private void triggerOverlapEvent(Entity entity) {
         List<Runnable> overlapCallbacks = new ArrayList<>();
         getEntities(entity.getPosition()).forEach(e -> {
-            if (e != entity && !(e instanceof Collectable) || e instanceof Bomb)
+            if (e instanceof Bomb) {
                 overlapCallbacks.add(() -> e.onOverlap(this, entity));
-            if (e instanceof Collectable && !(e instanceof Bomb))
-                overlapCallbacks.add(() -> entity.onOverlap(this, e));
+            } else if (e != entity && !overlapCallbacks.add(() -> entity.onOverlap(this, e))) {
+                System.out.println("D:");
+            } else {
+                overlapCallbacks.add(() -> e.onOverlap(this, entity));
+            }
 
         });
         overlapCallbacks.forEach(callback -> {
@@ -263,4 +338,5 @@ public class GameMap {
     public void setGame(Game game) {
         this.game = game;
     }
+
 }

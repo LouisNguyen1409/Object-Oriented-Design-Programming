@@ -46,8 +46,9 @@ public abstract class Entity {
         this.position = Position.translateBy(this.position, offset);
     }
 
-    public void onOverlap(GameMap map, Entity entity) {
-        return;
+    public boolean onOverlap(GameMap map, Entity entity) {
+        // If no defined behaviour return false;
+        return false;
     }
 
     public void onMovedAway(GameMap map, Entity entity) {
