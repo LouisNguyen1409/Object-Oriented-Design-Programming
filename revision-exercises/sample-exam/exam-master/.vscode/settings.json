@@ -1,0 +1,6 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "[plaintext]": {
+    "editor.wordWrap": "on"
+  }
+}
